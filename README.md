@@ -9,7 +9,20 @@ This repository contains two Java classes:
 **How to Use**
 
 1. **MacEncryption:**
-   * The `MacEncryption` class is not intended to be used directly in this example. It provides the core functionality for MAC generation.
+   * Clone the repository:
+   ```bash
+   git clone <repository_url>
+   cd <repository_folder>
+   ```
+   * Compile the Java program:
+   ```bash
+   javac MacEncryption.java
+   ```
+   * Run the program
+
+   ```bash
+    java MacEncryption
+   ```
 
 2. **MacEncryptionBenchmark:**
    * Compile the code using Maven:
