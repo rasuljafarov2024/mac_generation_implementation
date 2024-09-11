@@ -6,7 +6,7 @@ import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import java.util.Arrays;
 
-public class Encryption {
+public class MacEncryption {
 
     public static void main(String[] args) {
         try {
@@ -27,7 +27,7 @@ public class Encryption {
     }
 
     // Convert a hex string to a byte array
-    private static byte[] hexStringToByteArray(String hex) {
+    public static byte[] hexStringToByteArray(String hex) {
         int len = hex.length();
         byte[] data = new byte[len / 2];
         for (int i = 0; i < len; i += 2) {
@@ -38,7 +38,7 @@ public class Encryption {
     }
 
     // Convert a byte array to a hex string
-    private static String bytesToHex(byte[] bytes) {
+    public static String bytesToHex(byte[] bytes) {
         StringBuilder sb = new StringBuilder(bytes.length * 2);
         for (byte b : bytes) {
             sb.append(String.format("%02x", b & 0xff));
@@ -47,7 +47,7 @@ public class Encryption {
     }
 
     // Generate a Retail MAC (Message Authentication Code)
-    private static byte[] generateRetailMac(byte[] key, byte[] data) {
+    public static byte[] generateRetailMac(byte[] key, byte[] data) {
         try {
             // Split the key into two halves
             byte[] keyPart1 = Arrays.copyOf(key, 8);
@@ -89,7 +89,7 @@ public class Encryption {
     }
 
     // Pad the input data according to ISO/IEC 9797-1 or ISO 7816-4
-    private static byte[] padData(byte[] data) {
+    public static byte[] padData(byte[] data) {
         int paddingLength = 8 - (data.length % 8);
         int paddedLength = data.length + paddingLength;
         byte[] paddedData = Arrays.copyOf(data, paddedLength);
